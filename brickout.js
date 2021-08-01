@@ -25,6 +25,7 @@ const brickOffsetLeft = 30;
 
 let score = 0;
 let lives = 3;
+let combo = 0;
 let startGame = false;
 
 let bricks = [];
@@ -41,6 +42,12 @@ function drawLives() {
     ctx.fillStyle = "#0095DD";
     ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
     
+}
+
+function drawCombo() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Combo: " + combo, 8, 160)
 }
 
 
@@ -112,7 +119,7 @@ function touchMoveHandler(e) {
 }
 
 function touchEndHandler(e) {
-    
+
 }
 
 
@@ -122,9 +129,11 @@ function collisionDetection() {
             let b = bricks[c][r];
             if (b.status == 1) {
                 if (b.x < x && x < b.x + brickWidth && b.y < y && y < b.y + brickHeight) {
-                    dy = -dy;
+                    if (0 < dy) dy = -2 - combo;
+                    else dy = 2 + combo;
                     b.status = 0;
                     score++;
+                    combo++;
                     if (score == brickRowCount * brickColumnCount) {
                         document.location.reload();
                     }
@@ -180,6 +189,7 @@ function draw() {
     drawPaddle();
     drawScore();
     drawLives();
+    drawCombo();
     collisionDetection();
     drawBricks();
 
@@ -191,10 +201,11 @@ function draw() {
         dy = -dy;
     } else if (y + dy > canvas.height - ballRadius) {
         if (x > paddleX && x < paddleX + paddleWidth) {
-            dy = -dy;
+            dy = -dy; // 
         }
         else {
             lives--;
+            combo = 0;
             if(!lives) {
                 alert("GAME OVER");
                 document.location.reload();
