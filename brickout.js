@@ -97,7 +97,24 @@ function mouseMoveHandler(e) {
 
 function clickHandler(e) {
     startGame = true;
+    draw();
 }
+
+function touchStartHandler(e) {
+
+}
+
+function touchMoveHandler(e) {
+    let relativeX = e.clientX - canvas.offsetLeft;
+    if (0 < relativeX && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth / 2;
+    }
+}
+
+function touchEndHandler(e) {
+    
+}
+
 
 function collisionDetection() {
     for (let c = 0; c < brickColumnCount; c++) {
@@ -154,11 +171,6 @@ function drawStartButton() {
 function menu() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawStartButton();
-    
-    if (startGame == true) {
-        draw();
-    }
-    requestAnimationFrame(menu);
 }
 
 function draw() {
@@ -213,6 +225,9 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
 document.addEventListener("click", clickHandler, false);
+document.addEventListener("touchstart", touchStartHandler,false);
+document.addEventListener("touchmove", touchMoveHandler,false);
+document.addEventListener("touchend", touchEndHandler, false);
+
 
 menu();
-//draw();
