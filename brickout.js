@@ -25,6 +25,7 @@ const brickOffsetLeft = 30;
 
 let score = 0;
 let lives = 3;
+let startGame = false;
 
 let bricks = [];
 for (let c = 0; c < brickColumnCount; c++) {
@@ -94,6 +95,10 @@ function mouseMoveHandler(e) {
     }
 }
 
+function clickHandler(e) {
+    startGame = true;
+}
+
 function collisionDetection() {
     for (let c = 0; c < brickColumnCount; c++) {
         for (let r = 0; r < brickRowCount; r++) {
@@ -129,7 +134,32 @@ function drawBall() {
     ctx.closePath();
 }
 
+const startButtonHeight = 100;
+const startButtonWidth = 200;
 
+function drawStartButton() {
+    ctx.beginPath();
+    ctx.rect(canvas.width / 2 - startButtonWidth / 2, canvas.height / 2 - startButtonHeight / 2, startButtonWidth, startButtonHeight);
+    ctx.fillStyle = "lightgreen";
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "black";
+    ctx.fillText("Start to click", canvas.width / 2, canvas.height / 2);
+    ctx.closePath();
+}
+
+function menu() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawStartButton();
+    
+    if (startGame == true) {
+        draw();
+    }
+    requestAnimationFrame(menu);
+}
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -182,6 +212,7 @@ function draw() {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
+document.addEventListener("click", clickHandler, false);
 
-//setInterval(draw, 10);
-draw();
+menu();
+//draw();
