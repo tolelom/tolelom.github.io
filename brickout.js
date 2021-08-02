@@ -201,25 +201,26 @@ function draw() {
     if(y + dy < ballRadius) {
         dy = -dy;
     } else if (y + dy > canvas.height - ballRadius) {
-        lives--;
-        combo = 0;
-        if(!lives) {
-            alert("GAME OVER");
-            document.location.reload();
-        }
-        else {
-            x = canvas.width / 2;
-            y = canvas.height - 30;
-            dx = 2;
-            dy = -2;
-            paddleX = (canvas.width-paddleWidth) / 2;
-        }
-    } else if (y + dy > canvas.height - paddleHeight) {
         if (x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy; // 
         }
-    } 
-
+        else {
+            lives--;
+            combo = 0;
+            if(!lives) {
+                alert("GAME OVER");
+                document.location.reload();
+            }
+            else {
+                x = canvas.width / 2;
+                y = canvas.height - 30;
+                dx = 2;
+                dy = -2;
+                paddleX = (canvas.width-paddleWidth) / 2;
+            }
+        }    
+    }
+    
     if(rightPressed && paddleX < canvas.width-paddleWidth) {
         paddleX += 7;
     }
