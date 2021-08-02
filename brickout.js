@@ -200,10 +200,6 @@ function draw() {
 
     if(y + dy < ballRadius) {
         dy = -dy;
-    } else if (y + dy > canvas.height - paddleHeight) {
-        if (x > paddleX && x < paddleX + paddleWidth) {
-            dy = -dy; // 
-        }
     } else if (y + dy > canvas.height - ballRadius) {
         lives--;
         combo = 0;
@@ -218,7 +214,11 @@ function draw() {
             dy = -2;
             paddleX = (canvas.width-paddleWidth) / 2;
         }
-    }
+    } else if (y + dy > canvas.height - paddleHeight) {
+        if (x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy; // 
+        }
+    } 
 
     if(rightPressed && paddleX < canvas.width-paddleWidth) {
         paddleX += 7;
