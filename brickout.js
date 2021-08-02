@@ -128,9 +128,10 @@ function collisionDetection() {
         for (let r = 0; r < brickRowCount; r++) {
             let b = bricks[c][r];
             if (b.status == 1) {
-                if (b.x < x && x < b.x + brickWidth && b.y < y && y < b.y + brickHeight) {
+                if (b.x < x - ballRadius && x + ballRadius < b.x + brickWidth && b.y < y - ballRadius && y + ballRadius < b.y + brickHeight) {
                     if (0 < dy) dy = -2 - combo;
                     else dy = 2 + combo;
+                    
                     b.status = 0;
                     score++;
                     combo++;
