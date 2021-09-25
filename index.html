@@ -1,70 +1,58 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charseet="utf-8" />
-		<title>2048</title>
+<html lang="ko">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <!-- Bootstrap CSS -->  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
+    <title>Next Letter</title> 
+    
+    <!-- reset css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 
-		<link rel="stylesheet" href="style.css" />
-		<meta
-			name="viewport"
-			content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui"
-		/>
-		
-		<style>
-			#warp {
-				height: 500px;
-				margin: 0 auto;
-				border: 4px solid black;
-			}
-			#warp div {
-				display: inline-block;
-				height: 100px;
-			}
-			#warp div:first-child {
-				background: #f45750;
-			}
-			#warp div:nth-child(2) {
-				background: #40b0f9;
-			}
-			#warp div:nth-child(3) {
-				background: #00d2a5;
-			}
-			#warp div:nth-child(4) {
-				background: #ff884d;
-			}
-			#warp div:last-child {
-				background: #464646;
-			}
-			@media all and (min-width: 320px) {
-				#warp div {
-					width: 100%;
-				}
-			}
-			@media all and (min-width: 768px) {
-				#warp div {
-					width: 50%;
-				}
-				#warp div:last-child {
-				width: 100%;
-				}
-			}
-			
-			@media all and (min-width: 1024px) {
-				#warp div {
-					width: 20%;
-				}
-				#warp div:last-child {
-					width: 20%;
-				}
-			}
-		</style>
-	</head>
-	
-	<body>
-		<div id="warp">
-			<div></div><div></div><div></div><div></div><div></div>
-				
-			</div>
-		</div>
-	</body>
-</html>
+    <style>
+        body {
+            margin: 50px auto;
+        }
+        .logo {
+            text-align: center;
+
+        }
+        .info {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="warp">
+        <header class="header">
+            <h1 class="logo">
+                <a href="index.html">Next Letter</a>
+            </h1>
+        </header>
+    </div>
+
+    <div class="alert alert-warning" role="alert">
+        부트스트랩을 통한 UI 테스트 중입니다 
+    </div>
+
+    <h2 class="info">훈련병들에게 인터넷 편지를 더 편하게 보내주는 서비스</h2>
+
+    <div class="container">
+        <p>인터넷 편지를 보내려는 훈련병의 소속을 선택해주세요.</p>
+        <hr/>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='roka.html'">육군</button>
+                <button type="button" class="btn btn-info btn-lg btn-block" disabled>공군</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block"disabled>해군</button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>  
