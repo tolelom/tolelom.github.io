@@ -3,136 +3,62 @@
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     
     <!-- Bootstrap CSS -->  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    
-    <title>Next Letter-login</title> 
-    
-    <!-- reset css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
-
+    <title>Next Letter</title> 
+ 
     <style>
-        * {
-            margin: 0 auto;
-            padding: 0;
-            text-decoration: none;
-            font-family: "Noto Sans KR", sans-serif;
-        }
-
-        a {
-            text-decoration: none;
-            color: black
-        }
-        
-
-        .wrap {
+        html, body {
             width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        .container {
+            background: lightblue;
         }
 
-        .logo {
-            font-size: 4rem;
-            font-family: 'Jua', sans-serif;
-            font-weight: bold; 
-            text-align: center;
+        @media (min-width: 768px) {
+            .container {
+                width: 553px;
+            }
         }
 
-        .login-header {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        .login-box {
-            width: 50%;
-            height: 350px;
-            background: #ffffff;
-            text-align: center;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid black;
-            flex-direction: column;
-            
-        }
-        .id-form {
-            border-bottom: 2px solid #adadad;
-            margin: 30px;
-            padding: 10px 10px;
-        }
-        .id {
-            width: 100%;
-            border: none;
-            outline: none;
-            color: #636e72;
-            font-size: 16px;
-            height: 25px;
-            background: none;
-        }
-        .pw-form {
-            border-bottom: 2px solid #adadad;
-            margin: 30px;
-            padding: 10px 10px;
-        }
-        .password {
-            width: 100%;
-            border: none;
-            outline: none;
-            color: #636e72;
-            font-size: 16px;
-            height: 25px;
-            background: none;
-        }
-
-        .submit {
-            width: 60%;
-            height: 30px;
-            
-            border: none;
-        }
-        .register {
-            width: 60%;
-            height: 30px;
-            
-            border: none;
+        @media (min-width: 992px) {
+            .container {
+                width: 553px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div id="wrap">
-        <header class="header">
-            <h1 class="logo">
-                <a href="index.html">Next Letter</a>
-            </h1>
-        </header>
-
-        <div class="login-box">
-            <p class="login-header">Login</p>
-            <form class="login-form">
-                <div class="id-form">
-                    <input type="text" class="id" placeholder="ID">
+    <div class="container h-100 align-items-center">
+        <div class="row h-100">
+            <div class="col-sm-12 m-auto">
+                <div class="logo text-center">
+                    <img src="Next Letter-logo.png" height=100>
                 </div>
-                <div class="pw-form">
-                    <input type="password" class="password" placeholder="Password">
+                <div class="login-box">
+                    <div class="card">
+                        <div class="card-body">
+                            <input type="text" class="form-control" placeholder="아이디">
+                            <input type="password" class="form-control" placeholder="비밀번호">
+                            <button type="submit" class="btn border m-2">로그인</button>
+                            <a class="btn border" href="">회원가입</a>
+                        </div>
+                    </div>
                 </div>
-                <button type="button" class="submit" onClick="">로그인</button>
-                <buttin type="button" class="register" onClick="location.href='register.html'">회원가입</buttin>
-            </form>
-
-            <a href="">비밀번호를 잊으셨나요?</a>
+            </div>
         </div>
+            
+
     </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+
 </body>
 </html>
